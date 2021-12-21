@@ -33,10 +33,13 @@ where date(return_date) - date(rental_date) + 1 >= 10
 
 -- 1-8. 고객의 id가 50,100,150.. 등 50번의 배수에 해당하는 고객들에 대해서, 회원 가입 감사 이벤트를 진행하려고 합니다. 
 -- 고객 아이디가 50번 배수인 아이디와 고객의 이름(성, 이름)과 이메일에 대해서 확인해주세요.
--- mod()로 나머지를 계산할 수도 있다. 
 select customer_id, last_name, first_name, email
 from customer c 
 where customer_id % 50 = 0
+-- mod()로 나머지를 계산할 수도 있다. 
+select customer_id, last_name, first_name, email
+from customer c 
+where mod(customer_id, 50) = 0
 
 -- 1-9. 영화 제목의 길이가 8글자인, 영화 제목 리스트를 나열해주세요.
 -- 띄어쓰기도 길이에 포함된다.
