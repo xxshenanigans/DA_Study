@@ -52,3 +52,25 @@ join actor a on fa.actor_id = a.actor_id
 group by a.actor_id 
 having count(*) >= 40
 
+-- 4-13. 고객 등급별 고객 수를 구하세요. (대여 금액 혹은 매출액에 따라 고객 등급을 나누고 조건은 아래와 같습니다.)
+/* 
+A 등급은 151 이상
+B 등급은 101 이상 150 이하
+C 등급은   51 이상 100 이하
+D 등급은   50 이하
+- 대여 금액의 소수점은 반올림 하세요.
+HINT
+반올림 하는 함수는 ROUND 입니다.	
+*/
+select class , count(*)
+from (
+select customer_id , round(sum(amount),0) , case 
+when round(sum(amount)) >= 151 then 'A'
+when round(sum(amount)) between 101 and 150 then 'B'
+when round(sum(amount)) between 51 and 100 then 'C'
+else 'D'
+end as class
+from payment 
+group by customer_id) p
+group by class 
+
