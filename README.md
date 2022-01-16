@@ -1,6 +1,7 @@
 # Data Analyst Study
 [AI Bootcamp / Alumni Challenge] <br/>
-SQL / Growth Team / 통계 스터디 기록 
+**SQL / Growth Team / 통계**  
+스터디 기록
 
 ---
 
